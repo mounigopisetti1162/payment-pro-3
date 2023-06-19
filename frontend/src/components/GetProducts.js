@@ -33,7 +33,7 @@ function GetProducts() {
         axios.post(`${API}/delete-products`, data)
             .then(res => {
                 console.log(res.data, "27")
-                if (res.data.code == 200) {
+                if (res.data.code === 200) {
                     setRefresh(!refresh)
                 }
             })
@@ -53,7 +53,7 @@ function GetProducts() {
         axios.post(`${API}/add-to-cart`, _data, { headers })
             .then(res => {
                 console.log(res.data, "49")
-                if (res.data.code == 200) {
+                if (res.data.code === 200) {
                     setRefresh(!refresh)
                 }
             })
@@ -86,7 +86,7 @@ function GetProducts() {
                             <img style={{
                                 width: '100%',
                                 height: '150px'
-                            }} src={item.url} />
+                            }} src={item.url} alt="nin"/>
                             <div style={{ marginLeft: '4px' }}>{item.name} in {item.category}</div>
                             <div style={{ color: 'green', marginLeft: "4px" }}>
                                 By {item.seller} </div>

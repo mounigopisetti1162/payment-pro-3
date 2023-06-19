@@ -82,7 +82,7 @@ function UserCart() {
                         <img style={{
                             width: '100%',
                             height: '300px'
-                        }} src={item.url} />
+                        }} src={item.url} alt="none" />
                         <p>{item.name} in {item.category}</p>
                         <p>  By {item.seller} </p>
                         <p> PRICE : {item.price} Only/- </p>

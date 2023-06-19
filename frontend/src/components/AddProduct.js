@@ -19,7 +19,7 @@ function Addproduct() {
         axios.post(`${API}/add-product`, data)
             .then(res => {
                 console.log(res)
-                if (res.data == 'saved') {
+                if (res.data === 'saved') {
                     navigate('/get/products')
                 }
             })

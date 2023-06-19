@@ -17,7 +17,7 @@ function Signup() {
         axios.post(`${API}/signup`, data)
             .then((res) => {
                 console.log(res.data, 17)
-                if (res.data.code == 200) {
+                if (res.data.code === 200) {
                     navigate('/login')
                 }
             })

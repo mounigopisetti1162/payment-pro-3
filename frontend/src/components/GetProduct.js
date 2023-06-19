@@ -36,7 +36,7 @@ function GetProduct() {
         axios.post(`${API}/edit-products`, data)
             .then(res => {
                 console.log(res.data, "res")
-                if (res.data.code == 200) {
+                if (res.data.code === 200) {
                     navigate('/get/products')
                 }
             })
