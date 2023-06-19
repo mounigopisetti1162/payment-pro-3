@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-
+import { API } from "./global"
 
 function Addproduct() {
     const navigate = useNavigate()
@@ -16,7 +16,7 @@ function Addproduct() {
         console.log({ image: image, name, category, seller, price })
 
         const data = { url: image, name, category, seller, price }
-        axios.post('http://localhost:3001/add-product', data)
+        axios.post(`${API}/add-product`, data)
             .then(res => {
                 console.log(res)
                 if (res.data == 'saved') {

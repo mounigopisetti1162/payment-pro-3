@@ -8,6 +8,7 @@ module.exports.signUp = async (req, res) => {
     const password = req.body.password
     const url = req.body.url || 'https://i.picsum.photos/id/237/200/300.jpg?hmac=TmmQSbShHz9CdQm0NkEjx1Dyh_Y984R9LpNrpvH2D_U'
     const type = req.body.type || 'USER'
+    console.log(type)
 
     const roleData = await rolesModel.findOne({ role: type })
     console.log(roleData, "13")
@@ -19,7 +20,16 @@ module.exports.signUp = async (req, res) => {
         return res.send({ code: 400, message: 'Password Required.' })
     } else {
         //  logic here
-        const newUser = await new userModel({ name, password, url, type, roles })
+        // const roles="noy"
+        // if(roleData!=null)
+        // {
+    
+           
+        // }
+        // else{
+        //     const roles="not"
+        // }
+        const newUser = new userModel({ name, password, url, type, roles })
         const isSaved = await newUser.save()
         if (isSaved) {
             res.send({ code: 200, message: 'Saved' })

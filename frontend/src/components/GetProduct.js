@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
-
+import { API } from "./global"
 
 function GetProduct() {
     const navigate = useNavigate()
@@ -14,7 +14,7 @@ function GetProduct() {
 
     useEffect(() => {
         const id = params.id
-        axios.get(`http://localhost:3001/get-product/${id}`)
+        axios.get(`${API}/get-product/${id}`)
             .then(res => {
                 console.log(res.data.data, "13")
                 setImage(res.data.data.url)
@@ -33,7 +33,7 @@ function GetProduct() {
         console.log({ id: params.id, url: image, name, category, seller, price: Number(price) })
 
         const data = { id: params.id, url: image, name, category, seller, price: Number(price) }
-        axios.post('http://localhost:3001/edit-products', data)
+        axios.post(`${API}/edit-products`, data)
             .then(res => {
                 console.log(res.data, "res")
                 if (res.data.code == 200) {

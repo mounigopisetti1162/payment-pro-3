@@ -1,14 +1,16 @@
 const productModel = require('../models/productModel')
+const userModel = require('../models/userModel')
 
 module.exports.addProduct = async (req, res) => {
 
     console.log(req.body, "5")
-    if (req.permissions.indexOf('add-product') === -1) {
-        return res.send({ code: 401, message: 'Unauthenticated' })
-    }
+    // if (req.permissions.indexOf('add-product') === -1) {
+    //     return res.send({ code: 401, message: 'Unauthenticated' })
+    // }
 
     const newProduct = new productModel(req.body)
     const isSaved = await newProduct.save()
+    console.log(newProduct);
     if (isSaved) {
         res.send('saved')
     } else {
@@ -18,14 +20,19 @@ module.exports.addProduct = async (req, res) => {
 }
 
 module.exports.getProducts = async (req, res) => {
-
-    if (req.permissions.indexOf('view-products') === -1) {
-        return res.send({ code: 401, message: 'Unauthenticated' })
-    }
-
+console.log(req)
+const userProduct = new userModel(req.body)
+console.log(userProduct)
+console.log("userProduct")
+    // if (req.permissions.indexOf('view-products') === -1) {
+    //     console.log(req.permissions)
+    //     return res.send({ code: 401, message: 'Unauthenticated' })
+    // }
     const data = await productModel.find({})
+    console.log(data);
     if (data.length > 0) {
         res.send({ code: 200, message: 'Find Success', data: data })
+        console.log("data")
     } else if (data.length == 0) {
         res.send({ code: 404, message: 'Data not found' })
     } else {
@@ -37,9 +44,9 @@ module.exports.getProducts = async (req, res) => {
 
 module.exports.editProduct = async (req, res) => {
     console.log(req.body, 31)
-    if (req.permissions.indexOf('edit-product') === -1) {
-        return res.send({ code: 401, message: 'Unauthenticated' })
-    }
+    // if (req.permissions.indexOf('edit-product') === -1) {
+    //     return res.send({ code: 401, message: 'Unauthenticated' })
+    // }
     let newData = {}
 
     if (req.body.name) {
@@ -76,6 +83,7 @@ module.exports.getProductById = async (req, res) => {
     let data = await productModel.findById(req.params.id)
     if (data) {
         res.send({ code: 200, message: 'fetch by id success', data: data })
+        console.log(data);
     } else {
         res.send({ code: 500, message: 'Server Err.' })
     }

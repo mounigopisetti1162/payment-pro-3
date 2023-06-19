@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import axios from "axios"
-
+import { API } from "./global"
 function Login() {
     const navigate = useNavigate()
 
@@ -13,7 +13,7 @@ function Login() {
         console.log(userName, password)
 
         const data = { name: userName, password: password }
-        axios.post('http://localhost:3001/login', data)
+        axios.post(`${API}/login`, data)
             .then((res) => {
                 console.log(res.data.token, 17)
                 if (res.data.token) {

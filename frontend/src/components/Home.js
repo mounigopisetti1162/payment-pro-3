@@ -20,8 +20,8 @@ function Home() {
             price: 2599
         },
         {
-            url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQq39iB_cO6uhZ59vubrqVuYTJQH-4Qa0hU9g&usqp=CAU',
-            name: 'AMZ Laptop 8GB RAM',
+           url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQq39iB_cO6uhZ59vubrqVuYTJQH-4Qa0hU9g&usqp=CAU',
+             name: 'AMZ Laptop 8GB RAM',
             category: 'Laptops',
             seller: 'Delhi Laptops',
             price: 50000

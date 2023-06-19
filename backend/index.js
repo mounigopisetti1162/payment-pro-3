@@ -35,7 +35,7 @@ app.post('/delete-role', auth.checkToken, rolesController.deleteRole)
 
 app.post('/orders', paymentController.orders)
 app.post('/verify', paymentController.verfiy)
-
-app.listen(3001, () => {
+const PORT=process.env.PORT||4000
+app.listen(PORT, () => {
     console.log('Shopping backend Running...')
 })

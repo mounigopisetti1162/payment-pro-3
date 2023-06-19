@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-
+import { API } from "./global"
 
 function UserCart() {
     const navigate = useNavigate()
@@ -11,7 +11,7 @@ function UserCart() {
     useEffect(() => {
         const data = { userId: localStorage.getItem('userId') }
         const headers = { Authorization: localStorage.getItem('token') }
-        axios.post('http://localhost:3001/get-user-cart', data, { headers })
+        axios.post(`${API}/get-user-cart`, data, { headers })
             .then(res => {
                 console.log(res.data, "15")
                 setData(res.data.data.cart)
@@ -32,7 +32,7 @@ function UserCart() {
             description: 'XYZ',//
             handler: function (response) {
                 console.log(response, "34")
-                axios.post('http://localhost:3001/verify', { response: response })
+                axios.post(`${API}/verify`, { response: response })
                     .then(res => {
                         console.log(res, "37")
                         // your orders
@@ -50,7 +50,7 @@ function UserCart() {
 
     const handlePayment = (amount) => {
         const _data = { amount: amount }
-        axios.post('http://localhost:3001/orders', _data)
+        axios.post(`${API}/orders`, _data)
             .then(res => {
                 console.log(res.data, "29")
                 handleOpenRazorpay(res.data.data)

@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import axios from "axios"
-
+import { API } from "./global"
 function Signup() {
     const navigate = useNavigate()
 
@@ -14,7 +14,7 @@ function Signup() {
         console.log(userName, password)
 
         const data = { name: userName, password: password, type }
-        axios.post('http://localhost:3001/signup', data)
+        axios.post(`${API}/signup`, data)
             .then((res) => {
                 console.log(res.data, 17)
                 if (res.data.code == 200) {

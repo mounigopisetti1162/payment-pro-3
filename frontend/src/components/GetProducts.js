@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
-
+import { API } from "./global"
 
 function GetProducts() {
     const navigate = useNavigate()
@@ -17,9 +17,10 @@ function GetProducts() {
     console.log(data, "8")
     useEffect(() => {
         const headers = { Authorization: localStorage.getItem('token') }
-        axios.get('http://localhost:3001/get-products', { headers })
+        axios.get(`${API}/get-products`, { headers })
             .then(res => {
                 setData(res.data.data)
+                console.log(res.data.data)
             })
             .catch(err => {
                 console.log(err)
@@ -29,7 +30,7 @@ function GetProducts() {
 
     const handleDelete = () => {
         const data = deleteData
-        axios.post('http://localhost:3001/delete-products', data)
+        axios.post(`${API}/delete-products`, data)
             .then(res => {
                 console.log(res.data, "27")
                 if (res.data.code == 200) {
@@ -49,7 +50,7 @@ function GetProducts() {
         console.log({ productId: _productId, userId })
         const _data = { productId: _productId, userId }
         const headers = { Authorization: localStorage.getItem('token') }
-        axios.post('http://localhost:3001/add-to-cart', _data, { headers })
+        axios.post(`${API}/add-to-cart`, _data, { headers })
             .then(res => {
                 console.log(res.data, "49")
                 if (res.data.code == 200) {
