@@ -1,5 +1,7 @@
 const express = require('express')
 const cors = require('cors')
+const dotenv=require('dotenv')
+// import * as dotenv from 'dotenv'
 var bodyParser = require('body-parser')
 const productController = require('./controllers/productController')
 const userController = require('./controllers/userController')
@@ -7,7 +9,7 @@ const rolesController = require('./controllers/roleController')
 const paymentController = require('./controllers/paymentController')
 
 const auth = require('./middleware/auth')
-
+dotenv.config() 
 const app = express()
 app.use(cors())
 app.use(bodyParser.json())
