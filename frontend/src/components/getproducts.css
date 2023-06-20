@@ -1,0 +1,47 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Kablammo&display=swap');
+.getproducts{
+    height: 100vh;
+    background:linear-gradient(white,rgb(175, 252, 231));
+ 
+}
+Link{
+    color:white !important ;
+    font-weight: 700;
+}
+.cart{
+    justify-content: flex-end;
+    text-align: right;
+    border-radius: 30px;
+    margin-left: 10px;
+    padding: 10px 10px 10px 10px;
+    width: 70px !important;
+    height: 30px;
+    
+    color: aliceblue !important;
+    background-color: cornflowerblue;
+    border: 1px solid rgb(185, 68, 236);
+}
+.heading{
+    font-family: 'Kablammo', cursive;
+    font-size: 60px;
+    color: blueviolet;
+    /* font-family: Georgia, 'Times New Roman', Times, serif; */
+}
+.iteamname{
+    font-weight: 500;
+    font-size: 20px;
+}
+.buttons{
+    width: 150px;
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+    font-size: 15px;
+    color: rgb(253, 252, 254);
+    background-color: rgb(101, 77, 240);
+   
+}
+.buttons:hover{
+    box-shadow: 4px 4px 10px 1px blue;
+}

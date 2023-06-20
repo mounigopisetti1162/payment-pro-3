@@ -2,7 +2,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { API } from "./global"
-
+import './getproducts.css'
 function GetProducts() {
     const navigate = useNavigate()
     const rights = JSON.parse(localStorage.getItem('rights'))[0]?.permissions
@@ -63,8 +63,11 @@ function GetProducts() {
     }
 
     return (<>
-        <h1 style={{ textAlign: 'center' }}> SHOPPING CART  PRODUCTS </h1>
-        <Link to="/get/cart"> GO TO CART </Link>
+    <div className="getproducts">
+
+   
+        <h1 style={{ textAlign: 'center' }} className="heading"> $HOPPING CART  PRODUCTS </h1>
+        <label className="cart"> <Link to="/get/cart"> GO TO CART </Link></label>
         {deleteData.length > 0 &&
             <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
                 <button
@@ -78,19 +81,20 @@ function GetProducts() {
                     return (
                         <div style={{
                             margin: '30px 30px',
+                            padding:'10px 10px 10px 10px',
                             // background: '#eee',
                             boxShadow: '1px 1px 1px 1px rgb(0 0 0 / 16%)',
-                            width: '15%',
+                            width: '20%',
                             borderRadius: '5px'
                         }}>
                             <img style={{
                                 width: '100%',
                                 height: '150px'
                             }} src={item.url} alt="nin"/>
-                            <div style={{ marginLeft: '4px' }}>{item.name} in {item.category}</div>
-                            <div style={{ color: 'green', marginLeft: "4px" }}>
+                            <div className="iteamname"style={{ marginLeft: '4px' }}>{item.name} in {item.category}</div>
+                            <div className="iteamname" style={{ color: 'red', marginLeft: "4px" }}>
                                 By {item.seller} </div>
-                            <div style={{ marginLeft: "4px" }}> PRICE : {item.price} Only/- </div>
+                            <div className="iteamname" style={{ marginLeft: "4px" }}> PRICE : {item.price} Only/- </div>
 
                             {rights.indexOf('edit-product') !== -1 && <button onClick={() => {
                                 console.log(item._id, "40")
@@ -104,12 +108,13 @@ function GetProducts() {
                                     setDeleteData(deleteData.filter(s => s !== item._id))
                                 }
                             }} type="checkbox" />}
-                            <button onClick={() => handleAddToCart(item._id)
+                            <button className="buttons" onClick={() => handleAddToCart(item._id)
                             } > ADD TO CART  </button>
                         </div>
                     )
                 })
             }
+        </div>
         </div>
     </>)
 }

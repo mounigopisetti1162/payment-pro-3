@@ -1,0 +1,54 @@
+.stdiv{
+height: 100vh;
+align-items: center;
+background:linear-gradient(white,pink);
+}
+.secdiv{
+    /* background-color:; */
+    border: 5px solid rgb(255, 139, 159);
+    border-radius: 40px;
+    width: 500px;
+    height: 500px;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center;
+}
+.login{
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+color: blueviolet;
+font-size: 40px;
+}
+.user{
+    font-size: 20px;
+    font-weight: 700;
+    
+}
+.userinp{
+   margin-top: 10px !important;
+    width: 250px;
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+
+}
+.userinp:hover{
+    
+    box-shadow: 1px 1px 2px 1px rgba(145, 224, 8, 0.16);
+}
+.button{
+    width: 150px;
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+    font-size: 15px;
+    color: rgb(253, 252, 254);
+    background-color: rgb(240, 77, 221);
+   
+}
+.button:hover{
+    box-shadow: 4px 4px 10px 1px blue;
+}
+.signup{
+    font-size: 20px;
+   
+}

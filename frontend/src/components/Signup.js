@@ -2,6 +2,7 @@ import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import axios from "axios"
 import { API } from "./global"
+import './signup.css'
 function Signup() {
     const navigate = useNavigate()
 
@@ -33,24 +34,26 @@ function Signup() {
             justifyContent: 'center',
             margin: '50px 70px',
             padding: '30px',
-        }}>
-            <div>
-                <h1> Signup PAGE</h1>
-                <div> <Link to="/login"> LOGIN </Link> </div>
-                USERNAME -
-                <input type="text" value={userName} onChange={(e) => {
+        }} className="sign">
+            <div className="signdiv">
+                <h1 className="login"> Signup PAGE</h1>
+                <label className="user">UserName</label><br></br>
+          
+                <input className="userinp" type="text" value={userName} onChange={(e) => {
                     setUserName(e.target.value)
                 }} />   <br />  <br />
-                PASSWORD -
-                <input type="text" value={password} onChange={(e) => {
+                <label className="user">Password</label><br></br>
+                <input type="text" className="userinp" value={password} onChange={(e) => {
                     setPassword(e.target.value)
                 }} />   <br />  <br />
-                USER TYPE -
-                <input type="text" value={type} onChange={(e) => {
+               <label className="user">User Type</label><br></br>
+                <input type="text" value={type}  className="userinp" onChange={(e) => {
                     setType(e.target.value)
                 }} />   <br />  <br />
 
-                <button onClick={handleSignup}> SUBMIT </button>
+                <button onClick={handleSignup}  className="button"> SUBMIT </button>
+                <div className="signup"> <Link to="/login"> LOGIN </Link> </div>
+            
             </div>
         </div>
     )

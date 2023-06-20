@@ -1,0 +1,15 @@
+.sign{
+    height: 100vh;
+    align-items: center;
+    background:linear-gradient(white,rgb(192, 192, 255));
+    }
+    .signdiv{
+        /* background-color:; */
+        border: 5px solid rgb(139, 154, 255);
+        border-radius: 40px;
+        width: 500px;
+        height: 500px;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center;
+    }

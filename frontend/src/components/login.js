@@ -2,6 +2,7 @@ import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import axios from "axios"
 import { API } from "./global"
+import './login.css'
 function Login() {
     const navigate = useNavigate()
 
@@ -40,21 +41,22 @@ function Login() {
             boxShadow: '1px 1px 1px 1px rgb(0 0 0 / 16%)',
             justifyContent: 'center',
             margin: '50px 70px',
-            padding: '30px',
-        }}>
-            <div>
-                <h1> LOGIN PAGE</h1>
-                <div><Link to="/signup"> SIGNUP </Link> </div>
-                USERNAME -
-                <input type="text" value={userName} onChange={(e) => {
+            padding: '30px'
+        }} className="stdiv">
+            <div className="secdiv">
+                <h1 className="login"> LOGIN PAGE</h1>
+      
+                <label className="user">UserName</label><br></br>
+                <input type="text" className="userinp" value={userName} onChange={(e) => {
                     setUserName(e.target.value)
                 }} />   <br />  <br />
-                PASSWORD -
-                <input type="text" value={password} onChange={(e) => {
+                <label className="user">Password</label><br></br>
+                <input type="text" className="userinp" value={password} onChange={(e) => {
                     setPassword(e.target.value)
                 }} />   <br />  <br />
 
-                <button onClick={handleLogin}> SUBMIT </button>
+                <button onClick={handleLogin} className="button"> SUBMIT </button>
+                <div className="signup"><Link to="/signup" className="signup"> SIGNUP </Link> </div>
             </div>
         </div>
     )
