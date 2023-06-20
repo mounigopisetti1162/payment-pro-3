@@ -53,7 +53,7 @@ function Signup() {
 
                 <button onClick={handleSignup}  className="button"> SUBMIT </button>
                 <div className="signup"> <Link to="/login"> LOGIN </Link> </div>
-            
+            <p>NOTE:user type is USER and this is only a payemnt application does not contain much Authorization or authentication you can find that in my remaining applications</p>
             </div>
         </div>
     )
