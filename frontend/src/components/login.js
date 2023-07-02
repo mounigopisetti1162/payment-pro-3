@@ -22,12 +22,12 @@ function Login() {
                     localStorage.setItem('user', JSON.stringify(res.data.user))
                     localStorage.setItem('userId', res.data.user._id)
                     localStorage.setItem('rights', JSON.stringify(res.data.user.roles))
-                    // if (res.data.user.type === "USER") {
-                    //     navigate('/home')
-                    // }
-                    // if (res.data.user.type === "SELLER") {
+                    if (res.data.user.type === "USER") {
+                        navigate('/get/products')
+                    }
+                    if (res.data.user.type === "ADMIN") {
                     navigate('/get/products')
-                    // }
+                    }
                 }
             })
             .catch((err) => {
@@ -45,13 +45,14 @@ function Login() {
         }} className="stdiv">
             <div className="secdiv">
                 <h1 className="login"> LOGIN PAGE</h1>
-      
+                <p> Admin login is<b> username:chinni and password is 123</b>  </p>
+                <p> user login is <b>username:mounika and password is 12345 </b></p>
                 <label className="user">UserName</label><br></br>
                 <input type="text" className="userinp" value={userName} onChange={(e) => {
                     setUserName(e.target.value)
                 }} />   <br />  <br />
                 <label className="user">Password</label><br></br>
-                <input type="text" className="userinp" value={password} onChange={(e) => {
+                <input type="password" className="userinp" value={password} onChange={(e) => {
                     setPassword(e.target.value)
                 }} />   <br />  <br />
 

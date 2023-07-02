@@ -12,9 +12,10 @@ function GetProducts() {
 
     const [refresh, setRefresh] = useState(false)
 
+
     console.log(deleteData, "deletedata")
 
-    console.log(data, "8")
+    // console.log(data, "8")
     useEffect(() => {
         const headers = { Authorization: localStorage.getItem('token') }
         axios.get(`${API}/get-products`, { headers })
@@ -26,11 +27,18 @@ function GetProducts() {
                 console.log(err)
             })
     }, [refresh])
-
+    let header=true;
+if(((localStorage.getItem('rights'))[0]?.role)==='ADMIN')
+{
+header=false;
+}
 
     const handleDelete = () => {
-        const data = deleteData
-        axios.post(`${API}/delete-products`, data)
+        // const data = deleteData
+        // const data = rights
+        const rig=rights
+        console.log(data)// pass on the rights witht the data tooo
+        axios.post(`${API}/delete-products`, {data:{data:deleteData,rights:rights}})
             .then(res => {
                 console.log(res.data, "27")
                 if (res.data.code === 200) {
@@ -55,6 +63,7 @@ function GetProducts() {
                 console.log(res.data, "49")
                 if (res.data.code === 200) {
                     setRefresh(!refresh)
+                    console.log(refresh);
                 }
             })
             .catch(err => {
@@ -70,9 +79,13 @@ function GetProducts() {
         <label className="cart"> <Link to="/get/cart"> GO TO CART </Link></label>
         {deleteData.length > 0 &&
             <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
-                <button
+                <button className="delete"
                     onClick={handleDelete}>DELETE SELECTED </button>
             </div>}
+            <button onClick={() => {
+                localStorage.clear()
+                navigate('/login')
+            }} > Logout </button>
         <div style={{ display: 'flex', flexWrap: 'wrap' }}>
             {
                 data &&
@@ -96,7 +109,7 @@ function GetProducts() {
                                 By {item.seller} </div>
                             <div className="iteamname" style={{ marginLeft: "4px" }}> PRICE : {item.price} Only/- </div>
 
-                            {rights.indexOf('edit-product') !== -1 && <button onClick={() => {
+                            {rights.indexOf('edit-product') !== -1 && <button className="edit" onClick={() => {
                                 console.log(item._id, "40")
                                 navigate(`/get/product/${item._id}`)
                             }}>EDIT</button>}

@@ -36,6 +36,7 @@ function Signup() {
             padding: '30px',
         }} className="sign">
             <div className="signdiv">
+               
                 <h1 className="login"> Signup PAGE</h1>
                 <label className="user">UserName</label><br></br>
           
@@ -43,7 +44,7 @@ function Signup() {
                     setUserName(e.target.value)
                 }} />   <br />  <br />
                 <label className="user">Password</label><br></br>
-                <input type="text" className="userinp" value={password} onChange={(e) => {
+                <input type="password" className="userinp" value={password} onChange={(e) => {
                     setPassword(e.target.value)
                 }} />   <br />  <br />
                <label className="user">User Type</label><br></br>
@@ -53,7 +54,7 @@ function Signup() {
 
                 <button onClick={handleSignup}  className="button"> SUBMIT </button>
                 <div className="signup"> <Link to="/login"> LOGIN </Link> </div>
-            <p>NOTE:user type is USER and this is only a payemnt application does not contain much Authorization or authentication you can find that in my remaining applications</p>
+            <p>NOTE: user type is <b> USER or ADMIN</b> and this is only a payemnt application does not contain much Authorization or authentication you can find that in my remaining applications</p>
             </div>
         </div>
     )

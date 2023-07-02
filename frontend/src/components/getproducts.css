@@ -45,3 +45,11 @@ Link{
 .buttons:hover{
     box-shadow: 4px 4px 10px 1px blue;
 }
+.delete,.edit{
+    color: blueviolet;
+    background-color: white;
+    border-radius: 20px;
+    height: 30px;
+
+
+}

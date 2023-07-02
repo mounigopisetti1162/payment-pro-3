@@ -23,7 +23,7 @@ app.post('/add-product', auth.checkToken, productController.addProduct)
 app.get('/get-products', auth.checkToken, productController.getProducts)
 app.post('/edit-products', auth.checkToken, productController.editProduct)
 app.get('/get-product/:id', auth.checkToken, productController.getProductById)
-app.post('/delete-products', auth.checkToken, productController.deleteProducts)
+app.post('/delete-products', productController.deleteProducts)
 
 app.post('/signup', userController.signUp)
 app.post('/login', userController.login)

@@ -20,7 +20,8 @@ module.exports.addProduct = async (req, res) => {
 }
 
 module.exports.getProducts = async (req, res) => {
-console.log(req)
+// console.log(req)
+console.log("first")
 const userProduct = new userModel(req.body)
 console.log(userProduct)
 console.log("userProduct")
@@ -90,12 +91,13 @@ module.exports.getProductById = async (req, res) => {
 }
 
 module.exports.deleteProducts = async (req, res) => {
-
-    console.log(req.body, "73")
-    if (req.permissions.indexOf('delete-products') === -1) {
+console.log("deleted")
+    console.log(req.body.data, "73")
+    console.log(req.body.data.rights)
+    if (req.body.data.rights.indexOf('delete-products') === -1) {
         return res.send({ code: 401, message: 'Unauthenticated' })
     }
-    const ids = req.body
+    const ids = req.body.data.data
     const response = await productModel.deleteMany({ _id: { $in: ids } })
     if (response) {
         res.send({ code: 200, message: 'delete success', data: response })
