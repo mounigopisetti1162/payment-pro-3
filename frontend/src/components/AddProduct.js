@@ -2,7 +2,7 @@ import axios from "axios"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { API } from "./global"
-
+import './addproducts.css'
 function Addproduct() {
     const navigate = useNavigate()
     const [image, setImage] = useState('')
@@ -30,7 +30,7 @@ function Addproduct() {
     }
 
     return (
-        <div>
+        <div className="forms">
             <form onSubmit={handleSubmit}>
                 Image :     <input
                     className="inputs"
@@ -60,7 +60,8 @@ function Addproduct() {
                     onChange={(e) => setPrice(e.target.value)}
                     className="inputs" type="number" /> <br />
 
-                <button type="submit"> Submit </button>
+                <button type="submit" className="btn btn-success
+                "> Submit </button>
             </form>
         </div>
     )

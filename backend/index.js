@@ -19,7 +19,7 @@ const db = require('./db')
 
 
 
-app.post('/add-product', auth.checkToken, productController.addProduct)
+app.post('/add-product', productController.addProduct)
 app.get('/get-products', auth.checkToken, productController.getProducts)
 app.post('/edit-products', auth.checkToken, productController.editProduct)
 app.get('/get-product/:id', auth.checkToken, productController.getProductById)
