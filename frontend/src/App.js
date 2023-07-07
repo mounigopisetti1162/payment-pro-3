@@ -7,6 +7,7 @@ import GetProducts from './components/GetProducts';
 import GetProduct from './components/GetProduct';
 import Signup from './components/Signup';
 import UserCart from './components/UserCart';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
   return (

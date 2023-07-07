@@ -62,15 +62,22 @@ function UserCart() {
 
     return (
         <div>
-            home
-            <button onClick={() => {
+            <div className="nav"> 
+            <div className="navs">
+
+           
+          <button class="btn btn-success" onClick={() => {navigate('/get/products')}}>Home </button>
+            <button class="btn btn-danger" onClick={() => {
                 localStorage.clear()
                 navigate('/login')
             }} > Logout </button>
-
+</div>
+</div>
 
             <h1>PRODUCT LIST</h1>
-            <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+            <div className="getproducts" style={{ display: 'flex', flexWrap: 'wrap' }}>
+
+<div className="cartpro">
 
 
                 {data.map((item, index) => {
@@ -88,7 +95,9 @@ function UserCart() {
                         <p> PRICE : {item.price} Only/- </p>
                         <button onClick={() => handlePayment(item.price)}> PAY NOW </button>
                     </div>
+                    
                 })}
+                </div>
             </div>
 
         </div>

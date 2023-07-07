@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { API } from "./global"
 import './getproducts.css'
+import Nav from "./nav"
 function GetProducts() {
     const navigate = useNavigate()
     const rights = JSON.parse(localStorage.getItem('rights'))[0]?.permissions
@@ -12,7 +13,7 @@ function GetProducts() {
 
     const [refresh, setRefresh] = useState(false)
 
-
+console.log(rights);
     console.log(deleteData, "deletedata")
 
     // console.log(data, "8")
@@ -74,19 +75,21 @@ header=false;
     return (<>
     <div className="getproducts">
 
-   
+
         <h1 style={{ textAlign: 'center' }} className="heading"> $HOPPING CART  PRODUCTS </h1>
-        <label className="cart"> <Link to="/get/cart"> GO TO CART </Link></label>
+        <Nav rights={rights}/>
+       
         {deleteData.length > 0 &&
             <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
                 <button className="delete"
                     onClick={handleDelete}>DELETE SELECTED </button>
             </div>}
-            <button onClick={() => {
-                localStorage.clear()
-                navigate('/login')
-            }} > Logout </button>
+          
         <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+            <br></br>
+            <br></br>
+            <br></br>
+     
             {
                 data &&
                 data.length > 0 &&
@@ -108,6 +111,7 @@ header=false;
                             <div className="iteamname" style={{ color: 'red', marginLeft: "4px" }}>
                                 By {item.seller} </div>
                             <div className="iteamname" style={{ marginLeft: "4px" }}> PRICE : {item.price} Only/- </div>
+                            <div className="productbutttons">
 
                             {rights.indexOf('edit-product') !== -1 && <button className="edit" onClick={() => {
                                 console.log(item._id, "40")
@@ -123,6 +127,7 @@ header=false;
                             }} type="checkbox" />}
                             <button className="buttons" onClick={() => handleAddToCart(item._id)
                             } > ADD TO CART  </button>
+                            </div>
                         </div>
                     )
                 })

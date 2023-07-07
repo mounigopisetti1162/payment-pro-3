@@ -1,0 +1,16 @@
+.nav{
+    display: flex;
+   flex-direction: column;
+   background:linear-gradient(rgb(88, 88, 240),rgb(255, 255, 255));
+   height: 100px;
+   align-items: center;
+   justify-content: center;
+}
+.navs{
+display: flex;
+flex-direction: row;
+gap: 50px;
+}
+.cartpro{
+    width: 800px !important;
+}

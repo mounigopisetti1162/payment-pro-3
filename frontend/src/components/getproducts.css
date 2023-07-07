@@ -53,3 +53,8 @@ Link{
 
 
 }
+.productbutttons{
+    display: flex;
+    
+    gap: 10px !important;
+}
